@@ -1,5 +1,5 @@
 import Dashboard from './Dashboard';
-import './Inventory.css'
+import './styles/Inventory.css'
 
 export default function Inventory() {
   return (

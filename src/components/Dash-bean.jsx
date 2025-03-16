@@ -1,8 +1,27 @@
 import "cally";
+import Table from './baby-components/Table'
+import { useEffect, useState } from "react";
+
+const beanColumn = [
+    { header: 'Order Date', accessor: 'date_ordered'},
+    { header: 'Bean', accessor: 'bean_name'},
+    { header: 'Roaster', accessor: 'roaster'},
+    { header: 'Quantity', accessor: 'quantity'},
+    { header: 'Cost/Unit', accessor: 'unit_cost'},
+    { header: 'Total Cost', accessor: 'total_cost'},
+]
 export default function DashBean() {
+    const [beanData, setBeanData] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5001/api/beans')
+        .then(res => res.json())
+        .then(setBeanData);
+    }, []);
+
     return (
         <div>
-            <div className="overflow-x-auto rounded-box border border-base-content/5 bg-base-100 mx-8">
+            {/* <div className="overflow-x-auto rounded-box border border-base-content/5 bg-base-100 mx-8">
                 <table className="table table-xs">
                     <thead >
                         <tr>
@@ -56,17 +75,6 @@ export default function DashBean() {
                             <td>$123</td>
                         </tr>
                         <tr>
-                            {/* <td><button popoverTarget="cally-popover1" className="input input-border" id="cally1" style="anchorName:--cally1">
-                                Order Date
-                            </button>
-                                <div popover id="cally-popover1" className="dropdown bg-base-100 rounded-box shadow-lg" style="positionAnchor:--cally1">
-                                    <calendar-date class="cally" onchange={document.getElementById('cally1').innerText = this.value}>
-                                        <svg aria-label="Previous" className="fill-current size-4" slot="previous" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.75 19.5 8.25 12l7.5-7.5"></path></svg>
-                                        <svg aria-label="Next" className="fill-current size-4" slot="next" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m8.25 4.5 7.5 7.5-7.5 7.5"></path></svg>
-                                        <calendar-month></calendar-month>
-                                    </calendar-date>
-                                </div>
-                            </td> */}
                             <td><input type="date" placeholder="Order Date" className="input input-primary" /></td>
                             <td><input type="text" placeholder="Bean" className="input input-primary" /></td>
                             <td><input type="text" placeholder="Roaster" className="input input-primary" /></td>
@@ -76,7 +84,9 @@ export default function DashBean() {
                         </tr>
                     </tbody>
                 </table>
-            </div>
+            </div> */}
+            <h2>Beans</h2>
+            <Table columns={beanColumn} data={beanData} />
         </div>
     );
 }
