@@ -102,6 +102,25 @@ export default function DashBean() {
             });
     };
 
+    const handleDeleteRow = (id) => {
+        if (!confirm("Are you sure you want to delete this entry?")) return;
+
+        fetch(`http://localhost:5001/api/beans/${id}`, {
+            method: 'DELETE',
+        })
+            .then((res) => {
+                if (!res.ok) throw new Error('Failed to delete');
+                return res.json();
+            })
+            .then(() => {
+                setBeanData(prev => prev.filter(bean => bean._id !== id));
+            })
+            .catch(err => {
+                console.error('Delete error:', err);
+                alert('Error deleting bean entry.');
+            });
+    };
+
     return (
         <div>
             <div className="mx-8 mb-4">
@@ -125,6 +144,7 @@ export default function DashBean() {
                 newRow={newBean}
                 onInputChange={setNewBean}
                 onSubmitNew={handleAddBean}
+                onDeleteRow={handleDeleteRow}
             />
         </div>
     );
