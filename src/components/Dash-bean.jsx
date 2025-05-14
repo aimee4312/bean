@@ -16,7 +16,7 @@ export default function DashBean() {
     const [selectedDate, setSelectedDate] = useState('');
 
     useEffect(() => {
-        fetch('http://localhost:5001/api/beans')
+        fetch('https://bean-8dfs.onrender.com/api/beans')
             .then(res => res.json())
             .then(data => {
                 const sorted = [...data].sort((a, b) => {
@@ -74,7 +74,7 @@ export default function DashBean() {
     }, [beanData, mostRecentDate]);
 
     const handleAddBean = () => {
-        fetch('http://localhost:5001/api/beans', {
+        fetch('https://bean-8dfs.onrender.com/api/beans', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -105,7 +105,7 @@ export default function DashBean() {
     const handleDeleteRow = (id) => {
         if (!confirm("Are you sure you want to delete this entry?")) return;
 
-        fetch(`http://localhost:5001/api/beans/${id}`, {
+        fetch(`https://bean-8dfs.onrender.com/api/beans/${id}`, {
             method: 'DELETE',
         })
             .then((res) => {

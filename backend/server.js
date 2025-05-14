@@ -24,6 +24,6 @@ app.get('/', (req, res) => {
     res.send('Hello from the back');
 })
 app.listen(port, () => {
-    console.log(`Server running on http://localhost:${port}`);
+    console.log(`Server running on https://bean-8dfs.onrender.com`);
 })
 //////////////////////////////////////////
