@@ -4,15 +4,15 @@ const router = express.Router();
 
 router.post('/', async (req, res) => {
     try {
-        const { date_ordered, bean_name, roaster, quantity, unit_cost, total_cost } = req.body;
+        const { date_ordered, bean_name, roaster, quantity, size, unit_cost } = req.body;
 
         const newBean = new Bean({
             date_ordered,
             bean_name,
             roaster,
             quantity,
-            unit_cost,
-            total_cost
+            size,
+            unit_cost
         });
 
         await newBean.save();

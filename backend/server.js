@@ -16,7 +16,6 @@ mongoose.connect(process.env.MONGODB_URI, {
     .then(() => console.log('Connected to Mongo'))
     .catch(err => console.error('Failed to connect to Mongo', err));
 
-console.log('Bean Routes: ', beanRoutes); // To check if the beanRoutes are being imported correctly
 
 app.use('/api/beans', beanRoutes);
 
