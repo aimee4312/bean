@@ -5,4 +5,5 @@ export const beanColumn = [
   { header: 'Size', accessor: 'size' },
   { header: 'Quantity', accessor: 'quantity' },
   { header: 'Cost/Unit', accessor: 'unit_cost' },
+  { header: 'Cost/lb', accessor: 'cost_per_lb'},
 ];

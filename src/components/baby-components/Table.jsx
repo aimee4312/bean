@@ -78,6 +78,9 @@ const Table = ({ columns, data, newRow, onInputChange, onSubmitNew, onDeleteRow 
                                                     <a onClick={() => onInputChange(prev => ({ ...prev, roaster: 'Cosmic Dust' }))}>Cosmic Dust</a>
                                                 </li>
                                                 <li>
+                                                    <a onClick={() => onInputChange(prev => ({ ...prev, roaster: 'Flower Child' }))}>Flower Child</a>
+                                                </li>
+                                                <li>
                                                     <a onClick={() => onInputChange(prev => ({ ...prev, roaster: 'Hydrangea' }))}>Hydrangea</a>
                                                 </li>
                                                 <li>
@@ -138,6 +141,19 @@ const Table = ({ columns, data, newRow, onInputChange, onSubmitNew, onDeleteRow 
                                     </td>
                                 );
                             }
+                            // if (key === 'cost_per_lb') {
+                            //     return (
+                            //         <td key={colIndex}>
+                            //             <input
+                            //                 type="text"
+                            //                 className="input input-xs w-full"
+                            //                 value={value}
+                            //                 onChange={e => onInputChange(prev => ({ ...prev, [key]: e.target.value }))}
+                            //             />
+                            //         </td>
+                            //     );
+                            // }
+                            
                             return null;
                         })}
                         <td>
